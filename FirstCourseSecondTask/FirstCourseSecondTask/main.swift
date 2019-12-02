@@ -12,13 +12,13 @@ import FirstCourseSecondTaskChecker
 let checker = Checker()
 
 
-checker.checkFirstFunction(function: <#T##([Int]) -> (Int, Int)#>)
+checker.checkFirstFunction(function: returnTheNumberOfEvenOdd)
 
 
-checker.checkSecondFunction(function: <#T##([Checker.Circle]) -> [Checker.Circle]#>)
-
-
-checker.checkThirdFunction(function: <#T##([Checker.EmployeeData]) -> [Checker.Employee]#>)
-
-
-checker.checkFourthFunction(function: <#T##([String]) -> [String : [String]]#>)
+//checker.checkSecondFunction(function: <#T##([Checker.Circle]) -> [Checker.Circle]#>)
+//
+//
+//checker.checkThirdFunction(function: <#T##([Checker.EmployeeData]) -> [Checker.Employee]#>)
+//
+//
+//checker.checkFourthFunction(function: <#T##([String]) -> [String : [String]]#>)
