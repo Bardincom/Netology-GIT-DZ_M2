@@ -15,9 +15,9 @@ let checker = Checker()
 checker.checkFirstFunction(function: returnTheNumberOfEvenOdd)
 
 
-//checker.checkSecondFunction(function: <#T##([Checker.Circle]) -> [Checker.Circle]#>)
-//
-//
+checker.checkSecondFunction(function: convertArray)
+
+
 //checker.checkThirdFunction(function: <#T##([Checker.EmployeeData]) -> [Checker.Employee]#>)
 //
 //
