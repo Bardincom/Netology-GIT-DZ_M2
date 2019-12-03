@@ -9,14 +9,6 @@
 import Foundation
 import FirstCourseSecondTaskChecker
 
-/// Передайте в этот метод функцию, преобразующую массив окружностей по следующему алгоритму:
-  /// белые окружности должны быть первыми
-  /// радиус черных должен быть увеличен в 2 раза
-  /// красные нужно убрать из результата
-  /// зеленые перекрасить в синие
-  /// затем разместить синие в конце массива
-  /// Если не указано иное, то порядок окружностей должен сохраняться.
-  /// Если ваше решение окажется правильным то в консоли вы увидите еще одну часть кодового слова.
 
 /// Перечисление, представляющее один из пяти цветов
 public enum Color {
@@ -43,39 +35,45 @@ public struct Circle {
 
 
 func convertArray (of circles: [Checker.Circle]) -> [Checker.Circle] {
-  var newArra: [Checker.Circle] = []
-  let whiteArray = circles.filter { $0.color == .white }
-  var blackArray = circles.filter { $0.color == .black }
-  var greenArray = circles.filter{ $0.color == .green }
-  var blueArray = circles.filter{ $0.color == .blue}
+/// сводный массив в который будет попадать все отобранные
+  var resultingArray: [Checker.Circle] = []
+/// промежуточный массивы по цветам
+  var whiteArray: [Checker.Circle] = []
+  var blackArray: [Checker.Circle] = []
+  var blueArray: [Checker.Circle] = []
   
-  
+/// сортировка по промужуточным массивам
+  for figure in circles {
+    switch figure.color {
+      case .white:
+        whiteArray.append(figure)
+      case .black:
+        blackArray.append(figure)
+      case .green:
+        blueArray.append(figure)
+      case .blue:
+        blueArray.append(figure)
+      case .red:
+        break
+    }
+  }
 
-  for (index, item) in blackArray.enumerated() {
-    blackArray[index].radius = item.radius * 2
+/// изменение радиуса черных окружностей
+  for (index, _) in blackArray.enumerated() {
+    blackArray[index].radius *= 2
   }
   
-  for (index, _) in greenArray.enumerated() {
-    greenArray[index].color = .blue
+/// изменение цвета зеленых фигур
+  for (index, _) in blueArray.enumerated() {
+    blueArray[index].color = .blue
   }
   
-  blueArray.append(contentsOf: greenArray)
-  
-  newArra.append(contentsOf: whiteArray)
-  newArra.append(contentsOf: blackArray)
-  newArra.append(contentsOf: blueArray)
+/// добавление промежуточных массивов в результирующий
+  resultingArray.append(contentsOf: whiteArray)
+  resultingArray.append(contentsOf: blackArray)
+  resultingArray.append(contentsOf: blueArray)
 
-  
-
-  print("Исходный массив: ---------------------- \(circles.count)")
-  for (index, value) in circles.enumerated() {
-    print(index, value.color, value.radius)
-  }
-  print("---------------------- \(newArra.count)")
-  for (index, item) in newArra.enumerated() {
-    print(index, item.color, item.radius)
-  }
-  return newArra
+  return resultingArray
 }
 
 
