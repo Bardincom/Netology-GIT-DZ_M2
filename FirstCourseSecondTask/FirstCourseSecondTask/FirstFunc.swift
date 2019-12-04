@@ -12,7 +12,6 @@ import Foundation
 /// Использовал функцию filter и подсчет элеметнов массива count, фильтром я отобрал соответственно четные и нечетные значения и тут же их посчитал и положил в кортеж.
 
 func returnTheNumberOfEvenOdd (in array: [Int]) -> (Int, Int) {
-  
   return (array.filter {$0 % 2 == 0}.count, array.filter {$0 % 2 != 0}.count)
   
 }

@@ -18,7 +18,7 @@ checker.checkFirstFunction(function: returnTheNumberOfEvenOdd)
 checker.checkSecondFunction(function: convertArray)
 
 
-//checker.checkThirdFunction(function: <#T##([Checker.EmployeeData]) -> [Checker.Employee]#>)
-//
-//
+checker.checkThirdFunction(function: convert)
+
+
 //checker.checkFourthFunction(function: <#T##([String]) -> [String : [String]]#>)
