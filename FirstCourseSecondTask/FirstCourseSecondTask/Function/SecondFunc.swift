@@ -10,30 +10,6 @@ import Foundation
 import FirstCourseSecondTaskChecker
 
 
-/// Перечисление, представляющее один из пяти цветов
-public enum Color {
-
-    case white
-
-    case black
-
-    case red
-
-    case green
-
-    case blue
-}
-
-/// Структура, описывающая окружность
-public struct Circle {
-
-    public var radius: Double
-
-    public var color: FirstCourseSecondTaskChecker.Checker.Color
-}
-
-
-
 func convertArrayOfShapes (of circles: [Checker.Circle]) -> [Checker.Circle] {
 /// сводный массив в который будет попадать все отобранные
   var resultingArray: [Checker.Circle] = []

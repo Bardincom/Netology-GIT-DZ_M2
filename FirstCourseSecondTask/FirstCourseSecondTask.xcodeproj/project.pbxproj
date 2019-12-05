@@ -82,11 +82,8 @@
 		74BF03681FA097C4008F3824 /* FirstCourseSecondTask */ = {
 			isa = PBXGroup;
 			children = (
+				A2A47FFD239906060079AC20 /* Function */,
 				74BF03691FA097C4008F3824 /* main.swift */,
-				A2C4DD07239577B90001DBA0 /* FirstFunc.swift */,
-				A2A47FF72395BDC70079AC20 /* SecondFunc.swift */,
-				A2A47FF923970D340079AC20 /* ThirdFunc.swift */,
-				A2A47FFB239841110079AC20 /* FourthFunc.swift */,
 			);
 			path = FirstCourseSecondTask;
 			sourceTree = "<group>";
@@ -97,6 +94,17 @@
 				74BF03711FA097EA008F3824 /* FirstCourseSecondTaskChecker.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A2A47FFD239906060079AC20 /* Function */ = {
+			isa = PBXGroup;
+			children = (
+				A2C4DD07239577B90001DBA0 /* FirstFunc.swift */,
+				A2A47FF72395BDC70079AC20 /* SecondFunc.swift */,
+				A2A47FF923970D340079AC20 /* ThirdFunc.swift */,
+				A2A47FFB239841110079AC20 /* FourthFunc.swift */,
+			);
+			path = Function;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
