@@ -34,7 +34,7 @@ public struct Circle {
 
 
 
-func convertArray (of circles: [Checker.Circle]) -> [Checker.Circle] {
+func convertArrayOfShapes (of circles: [Checker.Circle]) -> [Checker.Circle] {
 /// сводный массив в который будет попадать все отобранные
   var resultingArray: [Checker.Circle] = []
 /// промежуточный массивы по цветам

@@ -12,6 +12,7 @@
 		74BF03741FA09849008F3824 /* FirstCourseSecondTaskChecker.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 74BF03711FA097EA008F3824 /* FirstCourseSecondTaskChecker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A2A47FF82395BDC70079AC20 /* SecondFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A47FF72395BDC70079AC20 /* SecondFunc.swift */; };
 		A2A47FFA23970D340079AC20 /* ThirdFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A47FF923970D340079AC20 /* ThirdFunc.swift */; };
+		A2A47FFC239841110079AC20 /* FourthFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A47FFB239841110079AC20 /* FourthFunc.swift */; };
 		A2C4DD08239577B90001DBA0 /* FirstFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C4DD07239577B90001DBA0 /* FirstFunc.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		74BF03711FA097EA008F3824 /* FirstCourseSecondTaskChecker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirstCourseSecondTaskChecker.framework; path = FirstCourseSecondTask/FirstCourseSecondTaskChecker.framework; sourceTree = "<group>"; };
 		A2A47FF72395BDC70079AC20 /* SecondFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondFunc.swift; sourceTree = "<group>"; };
 		A2A47FF923970D340079AC20 /* ThirdFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdFunc.swift; sourceTree = "<group>"; };
+		A2A47FFB239841110079AC20 /* FourthFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthFunc.swift; sourceTree = "<group>"; };
 		A2C4DD06239523BD0001DBA0 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		A2C4DD07239577B90001DBA0 /* FirstFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstFunc.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,6 +86,7 @@
 				A2C4DD07239577B90001DBA0 /* FirstFunc.swift */,
 				A2A47FF72395BDC70079AC20 /* SecondFunc.swift */,
 				A2A47FF923970D340079AC20 /* ThirdFunc.swift */,
+				A2A47FFB239841110079AC20 /* FourthFunc.swift */,
 			);
 			path = FirstCourseSecondTask;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 			files = (
 				A2C4DD08239577B90001DBA0 /* FirstFunc.swift in Sources */,
 				A2A47FFA23970D340079AC20 /* ThirdFunc.swift in Sources */,
+				A2A47FFC239841110079AC20 /* FourthFunc.swift in Sources */,
 				74BF036A1FA097C4008F3824 /* main.swift in Sources */,
 				A2A47FF82395BDC70079AC20 /* SecondFunc.swift in Sources */,
 			);

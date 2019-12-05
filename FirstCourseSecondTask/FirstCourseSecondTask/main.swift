@@ -15,10 +15,10 @@ let checker = Checker()
 checker.checkFirstFunction(function: returnTheNumberOfEvenOdd)
 
 
-checker.checkSecondFunction(function: convertArray)
+checker.checkSecondFunction(function: convertArrayOfShapes)
 
 
 checker.checkThirdFunction(function: convert)
 
 
-//checker.checkFourthFunction(function: <#T##([String]) -> [String : [String]]#>)
+checker.checkFourthFunction(function: convertArrayToDictionary)
