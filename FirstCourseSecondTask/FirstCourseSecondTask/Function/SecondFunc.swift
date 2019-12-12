@@ -11,8 +11,13 @@ import FirstCourseSecondTaskChecker
 
 
 func convertArrayOfShapes (of circles: [Checker.Circle]) -> [Checker.Circle] {
-/// сводный массив в который будет попадать все отобранные
-  var resultingArray: [Checker.Circle] = []
+//
+//  for item in circles {
+//    print(item.color, item.radius)
+//  }
+//
+///// сводный массив в который будет попадать все отобранные
+//  var resultingArray: [Checker.Circle] = []
 /// промежуточный массивы по цветам
   var whiteArray: [Checker.Circle] = []
   var blackArray: [Checker.Circle] = []
@@ -24,9 +29,13 @@ func convertArrayOfShapes (of circles: [Checker.Circle]) -> [Checker.Circle] {
       case .white:
         whiteArray.append(figure)
       case .black:
-        blackArray.append(figure)
+        /// изменение радиуса черных окружностей
+        let blackCircle = Checker.Circle(radius: figure.radius * 2, color: .black)
+        blackArray.append(blackCircle)
       case .green:
-        blueArray.append(figure)
+        /// изменение цвета зеленых фигур
+        let greenCircle = Checker.Circle(radius: figure.radius, color: .blue)
+        blueArray.append(greenCircle)
       case .blue:
         blueArray.append(figure)
       case .red:
@@ -34,23 +43,26 @@ func convertArrayOfShapes (of circles: [Checker.Circle]) -> [Checker.Circle] {
     }
   }
 
-/// изменение радиуса черных окружностей
-  for (index, _) in blackArray.enumerated() {
-    blackArray[index].radius *= 2
-  }
-  
-/// изменение цвета зеленых фигур
-  for (index, _) in blueArray.enumerated() {
-    blueArray[index].color = .blue
-  }
-  
-/// добавление промежуточных массивов в результирующий
-  resultingArray.append(contentsOf: whiteArray)
-  resultingArray.append(contentsOf: blackArray)
-  resultingArray.append(contentsOf: blueArray)
 
-  return resultingArray
+//  for (index, _) in blackArray.enumerated() {
+//    blackArray[index].radius *= 2
+//  }
+  
+
+//  for (index, _) in blueArray.enumerated() {
+//    blueArray[index].color = .blue
+//  }
+  
+///
+//  resultingArray.append(contentsOf: whiteArray)
+//  resultingArray.append(contentsOf: blackArray)
+//  resultingArray.append(contentsOf: blueArray)
+//
+//  for item in circles {
+//    print(item.color, item.radius)
+//  }
+  
+  return whiteArray + blackArray + blueArray
 }
-
 
 

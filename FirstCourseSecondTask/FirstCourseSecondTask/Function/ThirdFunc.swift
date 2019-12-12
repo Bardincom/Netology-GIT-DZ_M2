@@ -29,7 +29,9 @@ func convert (arrayDictionaries: [Checker.EmployeeData]) -> [Checker.Employee] {
     else { continue }
 
 /// записываем в новый массив значения по ключам
-    employee.append(.init(fullName: fullName, salary: salary, company: company))
+    employee.append(.init(fullName: fullName,
+                          salary: salary,
+                          company: company))
   }
   
   return employee
