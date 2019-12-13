@@ -11,6 +11,7 @@
 		7406E5971FB5E69A00480177 /* FirstCourseThirdTaskChecker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7406E5961FB5E69A00480177 /* FirstCourseThirdTaskChecker.framework */; };
 		7406E5991FB5E6C200480177 /* FirstCourseThirdTaskChecker.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7406E5961FB5E69A00480177 /* FirstCourseThirdTaskChecker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A200F81F23A3B3A2002A2412 /* FirstTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200F81E23A3B3A2002A2412 /* FirstTask.swift */; };
+		A23CC9C223A43EC50003CB45 /* SecondTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23CC9C123A43EC50003CB45 /* SecondTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,6 +41,7 @@
 		7406E58E1FB5E67200480177 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		7406E5961FB5E69A00480177 /* FirstCourseThirdTaskChecker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirstCourseThirdTaskChecker.framework; path = FirstCourseThirdTask/FirstCourseThirdTaskChecker.framework; sourceTree = "<group>"; };
 		A200F81E23A3B3A2002A2412 /* FirstTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTask.swift; sourceTree = "<group>"; };
+		A23CC9C123A43EC50003CB45 /* SecondTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTask.swift; sourceTree = "<group>"; };
 		A2D8E08F23A28FF40022FB91 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,6 +80,7 @@
 			children = (
 				7406E58E1FB5E67200480177 /* main.swift */,
 				A200F81E23A3B3A2002A2412 /* FirstTask.swift */,
+				A23CC9C123A43EC50003CB45 /* SecondTask.swift */,
 			);
 			path = FirstCourseThirdTask;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A23CC9C223A43EC50003CB45 /* SecondTask.swift in Sources */,
 				7406E58F1FB5E67200480177 /* main.swift in Sources */,
 				A200F81F23A3B3A2002A2412 /* FirstTask.swift in Sources */,
 			);

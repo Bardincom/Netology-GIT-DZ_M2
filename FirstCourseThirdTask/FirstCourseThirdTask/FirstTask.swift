@@ -15,7 +15,7 @@ import FirstCourseThirdTaskChecker
 /// Для проверки передайте экземпляры этих классов в метод. Если ваше решение окажется
 /// правильным, то в консоли вы увидите часть кодового слова.
 
-class StackArrayInializableStorage: ArrayInitializableStorage {
+class StackArray: ArrayInitializableStorage {
   override var count: Int {
     return array.count
   }
@@ -24,11 +24,9 @@ class StackArrayInializableStorage: ArrayInitializableStorage {
   
   override func push(_ element: Int) {
     array.append(element)
-    print(array)
   }
   
   override func pop() -> Int {
-    print(array)
     return array.removeLast()
   }
   
@@ -48,10 +46,10 @@ class StackArrayInializableStorage: ArrayInitializableStorage {
   
 }
 
-let stack = StackArrayInializableStorage()
+let stack = StackArray()
 
 
-class Queue: ArrayInitializableStorage {
+class QueueArray: ArrayInitializableStorage {
   override var count: Int {
     return array.count
   }
@@ -59,11 +57,9 @@ class Queue: ArrayInitializableStorage {
   
   override func push(_ element: Int) {
     array.append(element)
-    print(array)
   }
   
   override func pop() -> Int {
-    print(array)
     return array.removeFirst()
   }
   
@@ -80,5 +76,5 @@ class Queue: ArrayInitializableStorage {
   
 }
 
-let queue = Queue()
+let queue = QueueArray()
 

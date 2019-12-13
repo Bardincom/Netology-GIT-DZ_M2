@@ -5,3 +5,5 @@ import FirstCourseThirdTaskChecker
 let checker = Checker()
 
 checker.checkInheritance(stack: stack, queue: queue)
+
+checker.checkProtocols(stack: stackStruct, queue: queueStruct)
