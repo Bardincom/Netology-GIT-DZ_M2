@@ -15,7 +15,7 @@ import FirstCourseThirdTaskChecker
 /// Для проверки передайте экземпляры этих структур в метод. Если ваше решение окажется
 /// правильным, то в консоли вы увидите часть кодового слова.
 
-
+/// Структура реализующая  Стек
 struct StackStruct: ArrayInitializable, StorageProtocol {
   
   var count: Int {
@@ -43,7 +43,7 @@ struct StackStruct: ArrayInitializable, StorageProtocol {
 
 let stackStruct = StackStruct()
 
-
+/// Структура реализующая Очередь
 struct QueueStruct: ArrayInitializable, StorageProtocol {
   
   var count: Int {
@@ -51,7 +51,6 @@ struct QueueStruct: ArrayInitializable, StorageProtocol {
   }
   
   var arrayStorege: [Int]
-  
   
   mutating func push(_ element: Int) {
     arrayStorege.append(element)

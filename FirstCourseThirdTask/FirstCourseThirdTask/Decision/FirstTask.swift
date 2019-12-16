@@ -15,62 +15,63 @@ import FirstCourseThirdTaskChecker
 /// Для проверки передайте экземпляры этих классов в метод. Если ваше решение окажется
 /// правильным, то в консоли вы увидите часть кодового слова.
 
+/// Подкласс реализующий Стек
 class StackArray: ArrayInitializableStorage {
+  
   override var count: Int {
-    return array.count
+    return arrayStorage.count
   }
 
-  var array: [Int]
+  var arrayStorage: [Int]
   
   override func push(_ element: Int) {
-    array.append(element)
+    arrayStorage.append(element)
   }
   
   override func pop() -> Int {
-    return array.removeLast()
+    return arrayStorage.removeLast()
   }
   
 /// инициализация хранилища
   required init(array: [Int]) {
-    self.array = array
+    self.arrayStorage = array
     super.init(array: array)
   }
   
 /// инициализация пустого массива
   required init() {
-    self.array = []
+    self.arrayStorage = []
     super.init()
   }
-  
-
   
 }
 
 let stack = StackArray()
 
-
+/// Подкласс реализующий Очередь
 class QueueArray: ArrayInitializableStorage {
+  
   override var count: Int {
-    return array.count
+    return arrayStorage.count
   }
-  var  array: [Int]
+  
+  var  arrayStorage: [Int]
   
   override func push(_ element: Int) {
-    array.append(element)
+    arrayStorage.append(element)
   }
   
   override func pop() -> Int {
-    return array.removeFirst()
+    return arrayStorage.removeFirst()
   }
   
-  
   required init(array: [Int]) {
-    self.array = array
+    self.arrayStorage = array
     super.init(array: array)
   }
   
   required init() {
-    self.array = []
+    self.arrayStorage = []
     super.init()
   }
   

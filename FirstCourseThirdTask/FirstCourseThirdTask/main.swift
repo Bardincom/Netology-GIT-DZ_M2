@@ -7,3 +7,5 @@ let checker = Checker()
 checker.checkInheritance(stack: stack, queue: queue)
 
 checker.checkProtocols(stack: stackStruct, queue: queueStruct)
+
+checker.checkExtensions(userType: User.self)
