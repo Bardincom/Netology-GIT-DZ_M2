@@ -18,10 +18,11 @@ import FirstCourseThirdTaskChecker
 /// Структура реализующая  Стек
 struct StackStruct: ArrayInitializable, StorageProtocol {
   
+  var arrayStorage: [Int]
+  
   var count: Int {
     return arrayStorage.count
   }
-  var arrayStorage: [Int]
   
   mutating func push(_ element: Int) {
     arrayStorage.append(element)
@@ -32,11 +33,11 @@ struct StackStruct: ArrayInitializable, StorageProtocol {
   }
   
   init(array: [Int]) {
-    self.arrayStorage = array
+    arrayStorage = array
   }
   
   init() {
-    self.arrayStorage = []
+    arrayStorage = []
   }
   
 }
@@ -46,11 +47,11 @@ let stackStruct = StackStruct()
 /// Структура реализующая Очередь
 struct QueueStruct: ArrayInitializable, StorageProtocol {
   
+  var arrayStorege: [Int]
+  
   var count: Int {
     return arrayStorege.count
   }
-  
-  var arrayStorege: [Int]
   
   mutating func push(_ element: Int) {
     arrayStorege.append(element)
@@ -61,11 +62,11 @@ struct QueueStruct: ArrayInitializable, StorageProtocol {
   }
   
   init(array: [Int]) {
-    self.arrayStorege = array
+    arrayStorege = array
   }
   
   init() {
-    self.arrayStorege = []
+    arrayStorege = []
   }
   
 }

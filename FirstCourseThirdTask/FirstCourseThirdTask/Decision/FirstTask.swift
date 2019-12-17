@@ -16,13 +16,13 @@ import FirstCourseThirdTaskChecker
 /// правильным, то в консоли вы увидите часть кодового слова.
 
 /// Подкласс реализующий Стек
-class StackArray: ArrayInitializableStorage {
+class Stack: ArrayInitializableStorage {
+  
+  var arrayStorage: [Int]
   
   override var count: Int {
     return arrayStorage.count
   }
-
-  var arrayStorage: [Int]
   
   override func push(_ element: Int) {
     arrayStorage.append(element)
@@ -34,28 +34,28 @@ class StackArray: ArrayInitializableStorage {
   
 /// инициализация хранилища
   required init(array: [Int]) {
-    self.arrayStorage = array
+    arrayStorage = array
     super.init(array: array)
   }
   
 /// инициализация пустого массива
   required init() {
-    self.arrayStorage = []
+    arrayStorage = []
     super.init()
   }
   
 }
 
-let stack = StackArray()
+let stack = Stack()
 
 /// Подкласс реализующий Очередь
-class QueueArray: ArrayInitializableStorage {
+class Queue: ArrayInitializableStorage {
+  
+  var  arrayStorage: [Int]
   
   override var count: Int {
     return arrayStorage.count
   }
-  
-  var  arrayStorage: [Int]
   
   override func push(_ element: Int) {
     arrayStorage.append(element)
@@ -66,16 +66,16 @@ class QueueArray: ArrayInitializableStorage {
   }
   
   required init(array: [Int]) {
-    self.arrayStorage = array
+    arrayStorage = array
     super.init(array: array)
   }
   
   required init() {
-    self.arrayStorage = []
+    arrayStorage = []
     super.init()
   }
   
 }
 
-let queue = QueueArray()
+let queue = Queue()
 
