@@ -85,8 +85,8 @@
 				741469B11F9E37F600A1B130 /* main.swift */,
 				A2C480CE23C38E640002C045 /* User.swift */,
 				A284E37723B80EF800C99999 /* UsersStorage.swift */,
-				A284E37923B8119000C99999 /* PostsStorage.swift */,
 				A2C480D023C3AE540002C045 /* Post.swift */,
+				A284E37923B8119000C99999 /* PostsStorage.swift */,
 			);
 			path = FirstCourseFinalTask;
 			sourceTree = "<group>";

@@ -16,9 +16,9 @@ struct Post: PostProtocol {
   
   var description: String
   
-  var imageURL: URL
+  var imageURL: URL { return .init(fileURLWithPath: "") }
   
-  var createdTime: Date
+  var createdTime: Date { return .init() }
   
   var currentUserLikesThisPost: Bool
   

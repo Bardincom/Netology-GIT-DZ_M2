@@ -28,6 +28,5 @@ struct User: UserProtocol {
   
   var followedByCount: Int
   
-
 }
 

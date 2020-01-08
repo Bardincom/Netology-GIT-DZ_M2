@@ -11,11 +11,11 @@ import FirstCourseFinalTaskChecker
 
 class UserStorage: UsersStorageProtocol {
   
-  var users: [UserInitialData]
+  private var users: [UserInitialData]
   
-  var followers: [(GenericIdentifier<UserProtocol>, GenericIdentifier<UserProtocol>)]
+  private var followers: [(GenericIdentifier<UserProtocol>, GenericIdentifier<UserProtocol>)]
   
-  var currentUserID: GenericIdentifier<UserProtocol>
+  private var currentUserID: GenericIdentifier<UserProtocol>
   
   var count: Int { users.count }
   
@@ -126,7 +126,7 @@ class UserStorage: UsersStorageProtocol {
     guard users.contains(where: { (user) -> Bool in
       user.username == searchString
     }) else {
-      return [UserProtocol]()
+      return [User]()
     }
     
     /// найденный пользователь
@@ -231,7 +231,7 @@ class UserStorage: UsersStorageProtocol {
                             followsCount: 0,
                             followedByCount: 0)
     
-//  все подписки пользователя
+    //  все подписки пользователя
     var arrayFollowedByUser = [User]()
     
     for follower in followers where follower.0 == userID {
