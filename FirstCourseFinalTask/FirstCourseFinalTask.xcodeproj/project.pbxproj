@@ -14,6 +14,7 @@
 		A284E37A23B8119000C99999 /* PostsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A284E37923B8119000C99999 /* PostsStorage.swift */; };
 		A2C480CF23C38E640002C045 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C480CE23C38E640002C045 /* User.swift */; };
 		A2C480D123C3AE540002C045 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C480D023C3AE540002C045 /* Post.swift */; };
+		A2C480D323C67BB00002C045 /* Extension + UserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C480D223C67BB00002C045 /* Extension + UserStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,6 +48,7 @@
 		A284E37923B8119000C99999 /* PostsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsStorage.swift; sourceTree = "<group>"; };
 		A2C480CE23C38E640002C045 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A2C480D023C3AE540002C045 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		A2C480D223C67BB00002C045 /* Extension + UserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UserStorage.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				741469B11F9E37F600A1B130 /* main.swift */,
 				A2C480CE23C38E640002C045 /* User.swift */,
 				A284E37723B80EF800C99999 /* UsersStorage.swift */,
+				A2C480D223C67BB00002C045 /* Extension + UserStorage.swift */,
 				A2C480D023C3AE540002C045 /* Post.swift */,
 				A284E37923B8119000C99999 /* PostsStorage.swift */,
 			);
@@ -162,6 +165,7 @@
 			files = (
 				A2C480CF23C38E640002C045 /* User.swift in Sources */,
 				A284E37A23B8119000C99999 /* PostsStorage.swift in Sources */,
+				A2C480D323C67BB00002C045 /* Extension + UserStorage.swift in Sources */,
 				A284E37823B80EF800C99999 /* UsersStorage.swift in Sources */,
 				741469B21F9E37F600A1B130 /* main.swift in Sources */,
 				A2C480D123C3AE540002C045 /* Post.swift in Sources */,
