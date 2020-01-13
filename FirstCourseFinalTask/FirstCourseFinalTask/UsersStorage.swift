@@ -12,11 +12,8 @@ import FirstCourseFinalTaskChecker
 class UserStorage: UsersStorageProtocol {
   
   var users: [UserInitialData]
-  
   var followers: [(GenericIdentifier<UserProtocol>, GenericIdentifier<UserProtocol>)]
-  
   var currentUserID: GenericIdentifier<UserProtocol>
-  
   var count: Int { users.count }
   
   //  MARK: Initialization
@@ -25,74 +22,47 @@ class UserStorage: UsersStorageProtocol {
                  followers: [(GenericIdentifier<UserProtocol>, GenericIdentifier<UserProtocol>)],
                  currentUserID: GenericIdentifier<UserProtocol>) {
     
+    guard users.contains(where: { $0.id == currentUserID }) else { return nil}
+
     self.users = users
     self.followers = followers
-    
-    //    проверка содержит ли массив текущего пользователя
-    guard users.contains(where: { $0.id == currentUserID }) else { return nil}
-    
     self.currentUserID = currentUserID
   }
-  
-  // MARK: Method: CurrentUser
   
   func currentUser() -> UserProtocol {
     return fillUserData(for: currentUserID)
   }
   
-  // MARK: Method: User by ID
-  
   func user(with userID: GenericIdentifier<UserProtocol>) -> UserProtocol? {
-    // проверка на наличие входящего ID в массиве пользователей
-    guard users.contains(where: { $0.id == userID }) else { return nil }
-    
+    guard isUserExist(userID) else { return nil }
     return fillUserData(for: userID)
   }
   
-  //  MARK: Method - FindUsers
-  
   func findUsers(by searchString: String) -> [UserProtocol] {
+    guard users.contains(where: { $0.username == searchString }) else { return [UserProtocol]() }
     
-    guard users.contains(where: { $0.username == searchString }) else { return [User]() }
-    
-    /// найденный пользователь
-    var foundUser = User(id: "",
-                         username: "",
-                         fullName: "",
-                         currentUserFollowsThisUser: .init(),
-                         currentUserIsFollowedByThisUser: .init(),
-                         followsCount: .init(),
-                         followedByCount: .init())
+    let foundUser = user
+    var foundUsers = [UserProtocol]()
     
     for user in users where user.username == searchString {
-      foundUser.id = user.id
-      foundUser.fullName = user.fullName
-      foundUser.username = user.username
+      guard let foundUserID = foundUser(user.id) else { break }
+      foundUsers.append(foundUserID)
     }
     
-    return [foundUser]
+    return foundUsers
   }
   
-  // MARK: Method - Follow
-  
   func follow(_ userIDToFollow: GenericIdentifier<UserProtocol>) -> Bool {
-    //    проверка наличия переденного ID
-    guard users.contains(where: { $0.id == userIDToFollow }) else {
-      return false
-    }
-    // добавление нового подписчика для Текущего пользователя
+    guard isUserExist(userIDToFollow) else { return false }
+    
     followers.append((currentUserID, userIDToFollow))
     
     return true
   }
   
-  // MARK: Method - Unfollow
-  
   func unfollow(_ userIDToUnfollow: GenericIdentifier<UserProtocol>) -> Bool {
-    //    проверка наличия переденного ID
-    guard users.contains(where: { $0.id == userIDToUnfollow }) else { return false }
+    guard isUserExist(userIDToUnfollow) else { return false }
     
-    //    удаление Текущего пользователя из подписчиков
     for (index, follower) in followers.enumerated() where follower.0 == currentUserID {
       followers.remove(at: index)
     }
@@ -100,53 +70,29 @@ class UserStorage: UsersStorageProtocol {
     return true
   }
   
-  // MARK: Method - Users Following User
-  
   func usersFollowingUser(with userID: GenericIdentifier<UserProtocol>) -> [UserProtocol]? {
-    guard users.contains(where: { $0.id == userID }) else { return nil }
+    guard isUserExist(userID) else { return nil }
     
-    var followerUser = User(id: "",
-                            username: "",
-                            fullName: "",
-                            currentUserFollowsThisUser: .init(),
-                            currentUserIsFollowedByThisUser: .init(),
-                            followsCount: .init(),
-                            followedByCount: .init())
+    let followerUser = user
+    var arrayFollowerUser = [UserProtocol]()
     
-    /// массив подписчиков пользователя
-    var arrayFollowerUser = [User]()
-    
-    // возвращает всех подписчиков пользователя с переданным ID
     for follower in followers where follower.1 == userID {
-      followerUser.id = follower.0
-      // пользователи записываютсяв массив
-      arrayFollowerUser.append(followerUser)
+      guard let followerID = followerUser(follower.0) else { break }
+      arrayFollowerUser.append(followerID)
     }
     
     return arrayFollowerUser
   }
   
-  
-  // MARK: Method - Users Followed By User
-  
   func usersFollowedByUser(with userID: GenericIdentifier<UserProtocol>) -> [UserProtocol]? {
-    guard users.contains(where: { $0.id == userID }) else { return nil }
+     guard isUserExist(userID) else { return nil }
     
-    var followedUser = User(id: "",
-                            username: "",
-                            fullName: "",
-                            currentUserFollowsThisUser: .init(),
-                            currentUserIsFollowedByThisUser: .init(),
-                            followsCount: .init(),
-                            followedByCount: .init())
+    let followedUser = user
+    var arrayFollowedByUser = [UserProtocol]()
     
-    //  все подписки пользователя
-    var arrayFollowedByUser = [User]()
-    
-    for follower in followers where follower.0 == userID {
-      followedUser.id = follower.1
-      // пользователи записываютсяв массив
-      arrayFollowedByUser.append(followedUser)
+    for followed in followers where followed.0 == userID {
+      guard let followedID  = followedUser(followed.1) else { break }
+      arrayFollowedByUser.append(followedID)
     }
     
     return arrayFollowedByUser

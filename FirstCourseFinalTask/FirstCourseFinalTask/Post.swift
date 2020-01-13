@@ -11,16 +11,10 @@ import FirstCourseFinalTaskChecker
 
 struct Post: PostProtocol {
   var id: Self.Identifier
-  
   var author: GenericIdentifier<UserProtocol>
-  
   var description: String
-  
-  var imageURL: URL { return .init(fileURLWithPath: "") }
-  
-  var createdTime: Date { return .init() }
-  
+  var imageURL: URL
+  var createdTime: Date
   var currentUserLikesThisPost: Bool
-  
   var likedByCount: Int
 }

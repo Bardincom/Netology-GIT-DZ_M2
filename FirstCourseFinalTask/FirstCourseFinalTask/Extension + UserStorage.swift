@@ -12,33 +12,58 @@ import FirstCourseFinalTaskChecker
 extension UserStorage {
   /// Заполняет данными пользователя по ID
   ///
-  /// Данный метод помогает избежать излишнего повторения и нагромождения однотипного кода
   /// - Parameter userID: ID пользователя которого нужно вернуть
   /// - Returns: Пользователя поддерживающего UserProtocol.
   /// Eсли переданный userID совпадает с Текущим пользователем исключается подписка на самого себя
   func fillUserData(for userID: GenericIdentifier<UserProtocol>) -> UserProtocol {
-    var returnUser = User(id: "",
-                    username: "",
-                    fullName: "",
-                    currentUserFollowsThisUser: .init(),
-                    currentUserIsFollowedByThisUser: .init(),
-                    followsCount: .init(),
-                    followedByCount: .init())
+    
+    var username = ""
+    var fullName = ""
+    var currentUserFollowsThisUser = false
+    var currentUserIsFollowedByThisUser = false
+    var followsCount = 0
+    var followedByCount = 0
     
     for user in users where user.id == userID {
-      returnUser.id = user.id
-      returnUser.username = user.username
-      returnUser.followsCount = followers.filter{ $0.0 == userID }.count
-      returnUser.followedByCount = followers.filter{ $0.1 == userID }.count
+      username = user.username
+      fullName = user.fullName
+    }
+    
+    for (followerID, followerByID) in followers {
+      if followerID == userID {
+        followsCount += 1
+      }
       
-      if userID == currentUserID {
-        returnUser.currentUserFollowsThisUser = false
-        returnUser.currentUserIsFollowedByThisUser = false
-      } else {
-        returnUser.currentUserFollowsThisUser = followers.contains(where: { $0.0 == userID})
-        returnUser.currentUserIsFollowedByThisUser = followers.contains(where: { $0.1 == userID })
+      if followerByID == userID {
+        followedByCount += 1
+      }
+      
+      if followerID == currentUserID && followerByID == userID  {
+        currentUserFollowsThisUser = true
+      }
+      
+      if followerID == userID && followerByID == currentUserID {
+        currentUserIsFollowedByThisUser = true
       }
     }
-    return returnUser
+    
+    return User(id: userID,
+                username: username,
+                fullName: fullName,
+                currentUserFollowsThisUser: currentUserFollowsThisUser,
+                currentUserIsFollowedByThisUser: currentUserIsFollowedByThisUser,
+                followsCount: followsCount,
+                followedByCount: followedByCount)
+  }
+}
+
+extension UserStorage {
+  /// Проверяет наличие пользователя по ID
+  ///
+  /// - Parameter userID: ID пользователя которого нужно найти
+  /// - Returns: False или True в зависимости от результата проверки.
+  func isUserExist(_ userID: GenericIdentifier<UserProtocol>) -> Bool {
+    guard users.contains(where: {$0.id == userID}) else { return false }
+    return true
   }
 }

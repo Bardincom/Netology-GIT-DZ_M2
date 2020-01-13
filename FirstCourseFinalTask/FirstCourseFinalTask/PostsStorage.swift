@@ -16,6 +16,8 @@ class PostsStorage: PostsStorageProtocol {
   var currentUserID: GenericIdentifier<UserProtocol>
   
   var count: Int { posts.count }
+
+  //  MARK: Initialization
   
   required init(posts: [PostInitialData],
                 likes: [(GenericIdentifier<UserProtocol>, GenericIdentifier<PostProtocol>)],
@@ -26,74 +28,39 @@ class PostsStorage: PostsStorageProtocol {
     self.currentUserID = currentUserID
   }
   
-  //  MARK: Method - Post
-  
   func post(with postID: GenericIdentifier<PostProtocol>) -> PostProtocol? {
-    //   проверка содержит ли хранилище Публикацию
-    guard posts.contains(where: { $0.id == postID }) else { return nil }
+    guard isPostExist(postID) else { return nil }
     
-    var post = Post(id: "",
-                    author: "",
-                    description: "",
-                    currentUserLikesThisPost: .init(),
-                    likedByCount: .init())
-    
-    for postInArray in posts where postInArray.id == postID {
-      post.id = postInArray.id
-      post.author = postInArray.author
-      post.description = postInArray.description
-      post.likedByCount = likes.filter{$0.1 == postID}.count
-      post.currentUserLikesThisPost = likes.contains(where: { $0.0 == currentUserID && $0.1 == postID})
-    }
-    
-    return post
+    return fillPostData(for: postID)
   }
   
-  // MARK: Method - Find Posts
-  
   func findPosts(by authorID: GenericIdentifier<UserProtocol>) -> [PostProtocol] {
+    guard posts.contains(where: { $0.author == authorID }) else { return [PostProtocol]() }
     
-    guard posts.contains(where: { $0.author == authorID }) else { return [Post]() }
-    
-    /// все публикации пользователя
-    var allUserPost = Post(id: "",
-                           author: "",
-                           description: "",
-                           currentUserLikesThisPost: .init(),
-                           likedByCount: .init())
-    
-    var postsArray = [Post]()
+    let allUserPost = post
+    var postsArray = [PostProtocol]()
     
     for post in posts where post.author == authorID {
-      allUserPost.id = post.id
-      allUserPost.author = post.author
-      allUserPost.description = post.description
-      
-      postsArray.append(allUserPost)
+      guard let postID = allUserPost(post.id) else { break }
+      postsArray.append(postID)
     }
     
     return postsArray
   }
   
-  //  MARK: Method - Find Posts
-  
   func findPosts(by searchString: String) -> [PostProtocol] {
-    guard posts.contains(where: { $0.description == searchString }) else { return [Post]() }
+    guard posts.contains(where: { $0.description == searchString }) else { return [PostProtocol]() }
     
-    var foundPost = Post (id: "",
-                          author: "",
-                          description: "",
-                          currentUserLikesThisPost: .init(),
-                          likedByCount: .init())
+    let foundPost = post
+    var foundPosts = [PostProtocol]()
     
     for post in posts where post.description == searchString {
-      foundPost.id = post.id
+      guard let foundPostID = foundPost(post.id) else { break }
+      foundPosts.append(foundPostID)
     }
     
-    return [foundPost]
+    return foundPosts
   }
-  
-  //  MARK: - Method - Like Post
   
   func likePost(with postID: GenericIdentifier<PostProtocol>) -> Bool {
     guard posts.contains(where: { $0.id == postID }) else { return false }
@@ -103,10 +70,8 @@ class PostsStorage: PostsStorageProtocol {
     return true
   }
   
-  //  MARK: - Method - Unlike Post
-  
   func unlikePost(with postID: GenericIdentifier<PostProtocol>) -> Bool {
-    guard posts.contains(where: { $0.id == postID }) else { return false }
+    guard isPostExist(postID) else { return false }
     
     for (index, like) in likes.enumerated() where like.0 == currentUserID && like.1 == postID {
       likes.remove(at: index)
@@ -115,23 +80,13 @@ class PostsStorage: PostsStorageProtocol {
     return true
   }
   
-  //  MARK: Method - Users Liked Post
-  
   func usersLikedPost(with postID: GenericIdentifier<PostProtocol>) -> [GenericIdentifier<UserProtocol>]? {
-    guard posts.contains(where: { $0.id == postID }) else { return nil }
+    guard isPostExist(postID) else { return nil }
     
-    ///    пользователи которые поставили лайк
     var usersLike = [GenericIdentifier<UserProtocol>]()
-    
-    var post = Post(id: "",
-                    author: "",
-                    description: "",
-                    currentUserLikesThisPost: .init(),
-                    likedByCount: .init())
-    
+  
     for like in likes where like.1 == postID {
-      post.author = like.0
-      usersLike.append(post.author)
+      usersLike.append(like.0)
     }
     
     return usersLike
